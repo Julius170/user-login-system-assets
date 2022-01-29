@@ -6,7 +6,7 @@ $("form[name=signup_form").submit(function(e) {
 
     $.ajax({
         url: "/user/signup",
-        type:"POST",
+        type: POST,
         data:data,
         dataType:"json",
         success: function(resp) {
