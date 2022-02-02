@@ -1,9 +1,15 @@
 from flask import Flask, render_template
+import pymongo 
 
-# if  __name__ == "__main__":
-#     app.run(debug= True) 
+
 
 app = Flask(__name__)
+
+
+# DATABASE
+client = pymongo.MongoClient('localhost', 27017)
+mongodb = client.user_login_system
+db = client.user_login_system 
 
 # ROUTES
 from user import routes

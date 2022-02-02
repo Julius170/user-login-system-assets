@@ -1,7 +1,12 @@
+from flask import Flask
+from user.modules import User
 from app import app
-from user.modules import signup
 
 
-@app.route('/user/signup', methods=['GET'])
+@app.route('/user/signup', methods=["POST"])
 def signup():
-    return signup()
+    return User().signup()
+
+
+
+
