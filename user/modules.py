@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, session
-from passlib.hash import pdkdf2_sha256
+from passlib.hash import  bcrypt      #pdkdf2_sha256
 from app import db
 import uuid
 
@@ -23,7 +23,8 @@ class User:
         }
 
         # ENCRYPTING THE PASSWORD
-        user['password'] = pdkdf2_sha256.encrypt(user['password'])
+        # user['password'] = pdkdf2_sha256.encrypt(user['password'])
+        hash =  bcrypt.hash["password"]
 
         # CHECK FOR EXISTING EMAIL ADDRESS
         if db.user.find_one({"email": user['email']}):
