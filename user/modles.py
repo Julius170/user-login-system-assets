@@ -1,12 +1,16 @@
-from flask import Flask, jsonify, request, session
-from passlib.hash import  bcrypt      #pdkdf2_sha256
+from flask import Flask, jsonify, request, session, redirect
+from passlib.hash import bcrypt #pdkdf2_sha256
 from app import db
 import uuid
+
+
+
 
 # CREATING THE USER OBJECT
 class User:
 
     def start_session(self, user):
+        del user['password']
         session["Logged_in"] = True
         session['user'] = user
         return jsonify(user), 200
@@ -40,3 +44,6 @@ class User:
         return jsonify({"error": "Signup failed"}), 400
 
 
+    def signout(self):
+        session.clear()
+        return redirect('/')

@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import pymongo
 
 app = Flask(__name__)
-
+app.secrete_key = ""
 # DATABASE
 client = pymongo.MongoClient('localhost', 27017)
 mongodb = client.user_login_system
