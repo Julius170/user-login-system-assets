@@ -1,5 +1,5 @@
 from flask import Flask
-from user.modules import User
+from user.modles import User
 from app import app
 
 
